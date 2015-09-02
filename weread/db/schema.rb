@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819104023) do
+ActiveRecord::Schema.define(version: 20150902142033) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "title",                   limit: 255
@@ -24,5 +24,17 @@ ActiveRecord::Schema.define(version: 20150819104023) do
     t.integer  "attachment_file_size",    limit: 4
     t.datetime "attachment_updated_at"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name",       limit: 255, null: false
+    t.string   "last_name",        limit: 255, null: false
+    t.string   "email",            limit: 255, null: false
+    t.string   "crypted_password", limit: 255, null: false
+    t.string   "salt",             limit: 255, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
