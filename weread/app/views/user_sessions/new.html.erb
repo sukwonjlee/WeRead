@@ -1,0 +1,26 @@
+<div class="center">
+	<h1>Sign In</h1>
+</div>
+
+<%= bootstrap_form_tag url: '/user_sessions', layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10" do |f| %>
+	<div class="sign-up-in">
+		<p>
+			<%= f.alert_message "Please fix the errors below.", class: "errormsg" %>
+		</p>
+		<p>
+	  	<%= f.email_field :email, placeholder: 'account@example.com', class: "example" %>
+	  </p>
+		<p>
+	  	<%= f.password_field :password, placeholder: '*****' %>
+	  </p>
+  	<div class="col-sm-offset-2 col-sm-10">
+	  	<%= f.check_box :remember_me %>
+		</div>
+	</div>
+	
+	<div class="center">
+		<p>
+  		<%= f.submit "Sign In", class: "btn btn-success" %>
+  	</p>
+  </div>
+<% end %>
