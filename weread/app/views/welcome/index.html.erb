@@ -1,0 +1,21 @@
+<div class="center">
+	<h1>Welcome! WeRead</h1>
+	<h3>Engaging Students in Reading Assignments and Discussion</h3>
+</div>
+
+<%= bootstrap_form_tag url: '/user_sessions', layout: :inline, label_col: "col-sm-2", control_col: "col-sm-10" do |f| %>
+	<div class="center">
+		<p>
+			<%= f.alert_message "Please fix the errors below.", class: "errormsg" %>
+		</p>
+		<p>
+	  	<%= f.email_field :email, hide_label: true, placeholder: 'Email', class: "example" %>
+	  	<%= f.password_field :password, hide_label: true, placeholder: 'Password' %>
+	  	<%= f.submit "Sign In", class: "btn btn-success" %>
+	  </p>
+	</div>
+<% end %>
+
+<div class="center">
+	<h5>Don't Have an Account? <%= link_to "Sign Up", new_user_path %> Now!</h5>
+</div>

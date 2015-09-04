@@ -1,0 +1,28 @@
+<%= bootstrap_form_for(@user, :html => { :multipart => true }) do |f| %>
+  <div class="sign-up-in">
+    <p>
+      <%= f.alert_message "Please fix the errors below.", class: "errormsg" %>
+    </p>
+    <p>
+      <%= f.text_field :first_name, label: "First Name" %>
+    </p>
+    <p>
+      <%= f.text_field :last_name, label: "Last Name" %>
+    </p>
+    <p>
+      <%= f.email_field :email %>
+    </p>
+    <p>
+      <%= f.password_field :password  %>
+    </p>
+    <p>
+      <%= f.password_field :password_confirmation, label: "Password Confirmation" %>
+    </p>
+  </div> 
+  <div class="center">
+    <p>
+      <%= f.submit "Update", class: "btn btn-primary" %>
+      <%= link_to 'Cancel', assignments_path, class: 'btn btn-warning' %>
+    </p>
+  </div>
+<% end %>
