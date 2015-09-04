@@ -13,15 +13,21 @@
 
 <body>
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container dropdown">
-    <%= link_to "WeRead", welcome_index_path, id: 'logo' %>
+  <div class="container">
+
+    <% if logged_in? %>
+      <%= link_to "WeRead", assignments_path, id: 'logo' %>
+    <% else %>
+      <%= link_to "WeRead", welcome_index_path, id: 'logo' %>
+    <% end %>
+    
     <div class="navbar-text pull-right">
       <% if logged_in? %>
         <div class="dropdown pull-right">
-          Signed in as <span id="user" class="dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><%= current_user.email %>
+          Signed in as <span id="user" class="dropdown-toggle" type="button" data-toggle="dropdown"><%= current_user.email %>
           <span class="caret"></span></span>
           <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Account</a></li>
+            <li role="presentation"><%= link_to "Account Settings", edit_user_path(current_user.id) %></li>
             <li role="presentation"><%= link_to "Sign Out", logout_path %></li>
           </ul>
         </div>

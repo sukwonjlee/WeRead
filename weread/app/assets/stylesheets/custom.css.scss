@@ -39,9 +39,10 @@ h3 {
   color: #9a9a9a;
 }
 
-#user {
+#user, #user:hover {
   text-decoration: none;
   color: #fff;
+  cursor:pointer;
 }
 
 .remove, .remove:hover {
